@@ -25,7 +25,7 @@ c.NBViewer.threads = 8
 
 ## Minimum cache expiry (seconds).
 #  Default: 600
-# c.NBViewer.cache_expiry_min = 600
+c.NBViewer.cache_expiry_min = 3600
 
 
 ##### ------------------------------------------------------------------------
