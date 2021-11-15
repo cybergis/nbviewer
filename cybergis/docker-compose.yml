@@ -1,5 +1,5 @@
 nbviewer:
-  image: mynbviewer
+  image: cybergisx/nbviewer:0.1
   restart: always
   links:
    - nbcache
