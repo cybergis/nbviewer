@@ -1,0 +1,19 @@
+nbviewer:
+  image: mynbviewer
+  restart: always
+  links:
+   - nbcache
+  ports:
+   - 8080:8080
+  environment:
+    - GITHUB_OAUTH_KEY=XXXXXXXXXXX
+    - GITHUB_OAUTH_SECRET=XXXXXXXXXXXXX
+  volumes:
+   - ./:/srv/nbviewer
+   - ./patches/nbviewer/providers/base.py:/usr/local/lib/python3.7/site-packages/nbviewer/providers/base.py
+   - ./patches/nbviewer/templates/layout.html:/usr/local/lib/python3.7/site-packages/nbviewer/templates/layout.html
+   - ./patches/nbviewer/templates/notebook.html:/usr/local/lib/python3.7/site-packages/nbviewer/templates/notebook.html
+  command: ["python", "-m", "nbviewer", "--port=8080", "--config-file", "/srv/nbviewer/nbviewer_config.py"]
+nbcache:
+  image: memcached
+  restart: always
